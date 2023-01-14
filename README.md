@@ -61,7 +61,7 @@ Guia para Criação de templates no cli do dotnet.
 - **predefinição**: :x:
 - **obrigatório**: :heavy_check_mark:
 
-**Exemplo:**
+Exemplo:
 
 ```json
 "identity": "MeuProjeto.Exemplo.CSharp"
@@ -74,7 +74,7 @@ Guia para Criação de templates no cli do dotnet.
 - **predefinição**: :x:
 - **obrigatório**: :x:
 
-**Exemplo:**
+Exemplo:
 
 ```json
 "author": "Alexandre J. Santos"
@@ -83,28 +83,135 @@ Guia para Criação de templates no cli do dotnet.
 #### Classifications
 
 - **Nome**: *classifications*
-- **Descrição**: Lista de Características do template pode ser usada para buscar. Será visualizada no campos tag no dotnet new
+- **Descrição**: Lista de Características do template. Será mostrado no campo **Tags** dos templates quando usar o comando dotnet new -l
 - **predefinição**: :x:
 - **obrigatório**: :x:
 
-**Exemplo:**
+Exemplo:
 
 ```json
 "classifications": [ "Console", "Alfa"]
 ```
 
-**Comando:**
+Comando:
 
 ```shell
 dotnet new -l
 ```
 
-**Saída:**
+Saída:
 
 ```shell
 Template Name                                 Short Name      Language    Tags                      
 --------------------------------------------  --------------  ----------  --------------------------
 Template alfa tec                             alfaconsole     [C#]        > Alfa/Console <
+```
+
+#### Name
+
+- **Nome**: *name*
+- **Descrição**: Nome completo do template, será mostrado no campo **Template Name** quando utilizar o comando dotnet new -l
+- **predefinição**: :x:
+- **obrigatório**: :heavy_check_mark:
+
+Exemplo:
+
+```json
+"name": "Template alfa tec"
+```
+
+Comando:
+
+```shell
+dotnet new -l
+```
+
+Saída:
+
+```shell
+Template Name                                 Short Name      Language    Tags                      
+--------------------------------------------  --------------  ----------  --------------------------
+> Template alfa tec <                         alfaconsole     [C#]        Alfa/Console
+```
+
+#### ShortName
+
+- **Nome**: *shortName*
+- **Descrição**: Nome abrevidado do template, será mostrado no campo **Short Name** quando utilizar o comando dotnet new -l
+- **predefinição**: :x:
+- **obrigatório**: :heavy_check_mark:
+
+Exemplo:
+
+```json
+"name": "Template alfa tec"
+```
+
+Comando:
+
+```shell
+dotnet new -l
+```
+
+Saída:
+
+```shell
+Template Name                                 Short Name      Language    Tags                      
+--------------------------------------------  --------------  ----------  --------------------------
+Template alfa tec                             > alfaconsole < [C#]        Alfa/Console
+```
+
+#### SourceName
+
+- **Nome**: *sourceName*
+- **Descrição**: Subistitui todos os nome alfa do templates pelo que você definiu no comando dotnet new alfaconsole **(-n ou --name) Teste**
+- **predefinição**: :x:
+- **obrigatório**: :x:
+
+Exemplo:
+
+```json
+"sourceName": "alfa"
+```
+
+Comando:
+
+```shell
+dotnet new alfaconsole -n Teste
+```
+
+Saída:
+
+```shell
+No template: alfa.csproj
+
+No projeto criado: Teste.csproj
+```
+
+```C#
+No template:
+
+namespace alfa;
+
+class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("O programa alfa foi criado");
+    }
+}
+
+No projeto criado:
+
+namespace Teste;
+
+class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("O programa Teste foi criado");
+    }
+}
 ```
 
 ## Referência
