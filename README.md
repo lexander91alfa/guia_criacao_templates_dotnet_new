@@ -50,11 +50,11 @@ Guia para Criação de templates no cli do dotnet.
 }
 ```
 
-#### Campos
+### Campos
 
 - [Definição dos campos microsoft](https://github.com/dotnet/templating/wiki/Reference-for-template.json)
 
-##### Identity
+#### Identity
 
 - **Nome**: *identity*
 - **Descrição**: Indentificador único do template
@@ -67,7 +67,7 @@ Guia para Criação de templates no cli do dotnet.
 "identity": "MeuProjeto.Exemplo.CSharp"
 ```
 
-##### Author
+#### Author
 
 - **Nome**: *author*
 - **Descrição**: Nome do autor do template
@@ -80,7 +80,7 @@ Guia para Criação de templates no cli do dotnet.
 "author": "Alexandre J. Santos"
 ```
 
-##### Classifications
+#### Classifications
 
 - **Nome**: *classifications*
 - **Descrição**: Lista de Características do template pode ser usada para buscar. Será visualizada no campos tag no dotnet new
@@ -106,8 +106,6 @@ Template Name                                 Short Name      Language    Tags
 --------------------------------------------  --------------  ----------  --------------------------
 Template alfa tec                             alfaconsole     [C#]        > Alfa/Console <
 ```
-
-----
 
 ## Referência
 
