@@ -259,7 +259,7 @@ Exemplo:
 - **predefinição**: :x:
 - **obrigatório**: :x:
 
-Exemplo-1 alterando nome dentro do Program.cs:
+Exemplo1 - alterando nome dentro do Program.cs:
 
 ```json
 "symbols": {
@@ -299,7 +299,7 @@ dotnet new alfaconsole -n Teste -au "Alexandre Santos"
 Saída:
 
 ```C#
-No template:
+No template
 
 namespace alfa;
 
@@ -312,7 +312,7 @@ class Program
     }
 }
 
-No projeto criado:
+No projeto criado
 
 namespace Teste;
 
@@ -326,7 +326,7 @@ class Program
 }
 ```
 
-Exemplo-2 incluindo codigo no Program.cs:
+Exemplo2 - incluindo codigo no Program.cs:
 
 ```json
 "symbols": {
@@ -347,25 +347,26 @@ dotnet new alfaconsole -n Teste -p true
 Saída:
 
 ```C#
-No template:
+No template
 
 namespace alfa;
 
 class Program
 {
-	public static void Main()
-	{
-		Console.WriteLine("O programa alfa foi criado");
-		Console.WriteLine("Autor: nome");
-#if (preto)
-		Console.WriteLine("escolheu a cor preta");
-#endif
-	}
+    public static void Main()
+    {
+        Console.WriteLine("O programa alfa foi criado");
+        Console.WriteLine("Autor: nome");
+    #if (preto)
+        Console.WriteLine("escolheu a cor preta");
+    #endif
+    }
 }
 
-No projeto criado:
+No projeto criado
 
-Com -p false:
+Com -p false
+
 namespace Teste;
 
 class Program
@@ -378,7 +379,8 @@ class Program
 }
 
 
-Com -p true:
+Com -p true
+
 namespace Teste;
 
 class Program

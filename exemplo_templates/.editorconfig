@@ -7,3 +7,6 @@ end_of_line = lf
 [*.cs]
 indent_style = tab
 indent_size = 4
+#if (preto)
+insert_final_newline = true
+#endif

@@ -13,6 +13,7 @@
         "language": "C#",
         "type": "project"
     },
+    "preferDefaultName": false,
     "symbols": {
         "autor": {
             "type": "parameter",
@@ -25,6 +26,57 @@
             "type": "parameter",
             "datatype": "bool",
             "defaultValue": "false"
+        },
+        "branco": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false"
+        },
+        "platform": {
+            "type": "parameter",
+            "description": "The target platform for the project.",
+            "datatype": "choice",
+            "allowMultipleValues": true,
+            "enableQuotelessLiterals": true,
+            "choices": [
+                {
+                    "choice": "windows",
+                    "description": "Windows Desktop"
+                },
+                {
+                    "choice": "ubuntu",
+                    "description": "Ubuntu Desktop"
+                }
+            ],
+            "defaultValue": "windows"
+        },
+        "solinux": {
+            "type": "computed",
+            "datatype": "bool",
+            "value": "(platform == ubuntu)"
+        },
+        "sowindows": {
+            "type": "computed",
+            "datatype": "bool",
+            "value": "(platform == windows)"
+        },
+        "matematica": {
+            "type": "parameter",
+            "description": "incluir lib matematica",
+            "datatype": "bool",
+            "defaultValue": "false"
         }
-    }
+    },
+    "sources": [
+        {
+            "modifiers": [
+                {
+                    "condition": "(!matematica)",
+                    "exclude": [
+                        "matematica/**/*"
+                    ]
+                }
+            ]
+        }
+    ]
 }
