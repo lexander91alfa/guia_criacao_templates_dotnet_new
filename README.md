@@ -25,7 +25,7 @@ Guia para Criação de templates no cli do dotnet.
 ```json
 {
     "$schema": "http://json.schemastore.org/template",
-    "author": "Alexandre Jose dos santos",
+    "author": "Alexandre J. santos",
     "classifications": [
         "Alfa",
         "Console"
@@ -45,6 +45,11 @@ Guia para Criação de templates no cli do dotnet.
             "defaultValue": "Alexandre",
             "replaces": "nome",
             "datatype": "text"
+        },
+        "preto": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false"
         }
     }
 }
@@ -164,7 +169,7 @@ Template alfa tec                             > alfaconsole < [C#]        Alfa/C
 #### SourceName
 
 - **Nome**: *sourceName*
-- **Descrição**: Subistitui todos os nome alfa do templates pelo que você definiu no comando dotnet new alfaconsole **(-n ou --name) Teste**
+- **Descrição**: Subistitui todos os nome alfa do templates pelo que você definiu no comando dotnet new alfaconsole **(-n ou --name) [nome do projeto]**
 - **predefinição**: :x:
 - **obrigatório**: :x:
 
@@ -215,6 +220,175 @@ class Program
 {
     public static void Main()
         => Console.WriteLine("O programa Teste foi criado");
+}
+```
+
+#### Tags
+
+- **Nome**: *tags*
+- **Descrição**: Metadados do projeto
+- **predefinição**: :x:
+- **obrigatório**: :x:
+
+Exemplo:
+
+```json
+"tags": {
+        "language": "C#",
+        "type": "project"
+    },
+```
+
+#### Schema
+
+- **Nome**: *$schema*
+- **Descrição**: JSON esquema do template, para ser usado no IntelliSense de editores como VS Code.
+- **predefinição**: :x:
+- **obrigatório**: :x:
+
+Exemplo:
+
+```json
+"$schema": "http://json.schemastore.org/template"
+```
+
+#### symbols
+
+- **Nome**: *symbols*
+- **Descrição**: Define variaveis e seus valores.
+- **predefinição**: :x:
+- **obrigatório**: :x:
+
+Exemplo-1 alterando nome dentro do Program.cs:
+
+```json
+"symbols": {
+        "autor": {
+            "type": "parameter",
+            "description": "autor do projeto",
+            "defaultValue": "Alexandre",
+            "replaces": "nome",
+            "datatype": "text"
+        }
+    }
+```
+
+Comando:
+
+```shell
+dotnet new alfaconsole -h
+```
+
+Saída:
+
+```shell
+Template alfa tec (C#)
+Author: Alexandre Jose dos santos
+Options:                         
+  -au|--autor  autor do projeto  
+               text - Optional   
+               Default: Alexandre
+```
+
+Comando:
+
+```shell
+dotnet new alfaconsole -n Teste -au "Alexandre Santos"
+```
+
+Saída:
+
+```C#
+No template:
+
+namespace alfa;
+
+class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("O programa alfa foi criado");
+        Console.WriteLine("Autor: nome");
+    }
+}
+
+No projeto criado:
+
+namespace Teste;
+
+class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("O programa alfa foi criado");
+        Console.WriteLine("Autor: Alexandre Santos");
+    }
+}
+```
+
+Exemplo-2 incluindo codigo no Program.cs:
+
+```json
+"symbols": {
+        "preto": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false"
+        }
+    }
+```
+
+Comando:
+
+```shell
+dotnet new alfaconsole -n Teste -p true
+```
+
+Saída:
+
+```C#
+No template:
+
+namespace alfa;
+
+class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("O programa alfa foi criado");
+		Console.WriteLine("Autor: nome");
+#if (preto)
+		Console.WriteLine("escolheu a cor preta");
+#endif
+	}
+}
+
+No projeto criado:
+
+Com -p false:
+namespace Teste;
+
+class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("O programa alfa foi criado");
+        Console.WriteLine("Autor: Alexandre");
+    }
+}
+
+
+Com -p true:
+namespace Teste;
+
+class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("O programa testeoi foi criado");
+		Console.WriteLine("Autor: Alexandre");
+		Console.WriteLine("escolheu a cor preta");
+	}
 }
 ```
 

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json.schemastore.org/template",
-    "author": "Alexandre Jose dos santos",
+    "author": "Alexandre J. santos",
     "classifications": [
         "Alfa",
         "Console"
@@ -20,6 +20,11 @@
             "defaultValue": "Alexandre",
             "replaces": "nome",
             "datatype": "text"
+        },
+        "preto": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "false"
         }
     }
 }
