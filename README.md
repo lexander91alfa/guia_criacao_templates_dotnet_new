@@ -4,8 +4,6 @@ Guia para Criação de templates no cli do dotnet.
 
 ## Criação do Template para dotnet new
 
-
-
 ### Criação do template.json
 
 - Na pasta principal do template criar uma pasta chamada **.template.config**
@@ -21,8 +19,6 @@ Guia para Criação de templates no cli do dotnet.
 ```
 
 ### Criação do conteudo do template.json
-
-----
 
 #### Exemplo template.json
 
@@ -54,8 +50,6 @@ Guia para Criação de templates no cli do dotnet.
 }
 ```
 
-----
-
 #### Campos
 
 - [Definição dos campos microsoft](https://github.com/dotnet/templating/wiki/Reference-for-template.json)
@@ -70,9 +64,7 @@ Guia para Criação de templates no cli do dotnet.
 **Exemplo:**
 
 ```json
-{
-    "identity": "MeuProjeto.Exemplo.CSharp"
-}
+"identity": "MeuProjeto.Exemplo.CSharp"
 ```
 
 ##### Author
@@ -85,9 +77,7 @@ Guia para Criação de templates no cli do dotnet.
 **Exemplo:**
 
 ```json
-{
-    "author": "Alexandre J. Santos"
-}
+"author": "Alexandre J. Santos"
 ```
 
 ##### Classifications
@@ -100,9 +90,7 @@ Guia para Criação de templates no cli do dotnet.
 **Exemplo:**
 
 ```json
-{
-    "classifications": [ "Console", "Alfa"]
-}
+"classifications": [ "Console", "Alfa"]
 ```
 
 **Comando:**
@@ -116,7 +104,7 @@ dotnet new -l
 ```shell
 Template Name                                 Short Name      Language    Tags                      
 --------------------------------------------  --------------  ----------  --------------------------
-Template alfa tec                             alfaconsole     [C#]        Alfa/Console
+Template alfa tec                             alfaconsole     [C#]        > Alfa/Console <
 ```
 
 ----
