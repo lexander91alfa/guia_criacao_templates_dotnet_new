@@ -183,9 +183,17 @@ dotnet new alfaconsole -n Teste
 Saída:
 
 ```shell
-No template: alfa.csproj
+No template: 
+.
+├── alfa.csproj
+├── Program.cs
+└── .template.config
+    └── template.json
 
-No projeto criado: Teste.csproj
+No projeto criado:
+.
+├── Teste.csproj
+└── Program.cs
 ```
 
 ```C#
