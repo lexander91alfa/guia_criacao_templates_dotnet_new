@@ -204,9 +204,7 @@ namespace alfa;
 class Program
 {
     public static void Main()
-    {
-        Console.WriteLine("O programa alfa foi criado");
-    }
+        => Console.WriteLine("O programa alfa foi criado");
 }
 
 No projeto criado:
@@ -216,9 +214,7 @@ namespace Teste;
 class Program
 {
     public static void Main()
-    {
-        Console.WriteLine("O programa Teste foi criado");
-    }
+        => Console.WriteLine("O programa Teste foi criado");
 }
 ```
 
